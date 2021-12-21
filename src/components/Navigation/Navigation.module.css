@@ -1,0 +1,20 @@
+.nav {
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 1px #f3962c solid;
+}
+.link {
+  font-size: 23px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 12px;
+  color: #10d489;
+}
+.activeLink {
+  font-size: 23px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 12px;
+  font-size: 23px;
+  color: #f3962c;
+}

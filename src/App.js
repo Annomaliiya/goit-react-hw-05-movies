@@ -1,10 +1,16 @@
+import { Switch, Route } from 'react-router-dom';
 
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
+import Navigation from './components/Navigation';
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Navigation />
+      </div>
+    </BrowserRouter>
   );
 }
 
