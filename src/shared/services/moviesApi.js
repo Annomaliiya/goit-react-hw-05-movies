@@ -19,3 +19,23 @@ export const fetchTrendingMovies = async () => {
     }
 }
 
+export const fetchOneMovie = async (id) => {
+    try {
+        const { data } = await instance.get(`/movie/${id}`);
+        return data;
+    }
+    catch (error) {
+        return error;
+    }
+}
+
+export const fetchMovieBySearch = async (query) => {
+    try {
+        const { data } = await instance.get(`/movie/${query}`);
+        return data;
+    }
+    catch (error) {
+        return error;
+    }
+}
+
