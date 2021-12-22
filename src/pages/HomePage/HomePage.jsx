@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 // import { Link, useLocation } from "react-router-dom";
-import HomePageItem from "./HomePageItem";
+import HomePageItem from "../../components/HomePageItem";
 import s from "./HomePage.module.css";
 
 import { fetchTrendingMovies } from "../../shared/services/moviesApi";
