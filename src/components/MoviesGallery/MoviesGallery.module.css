@@ -1,8 +1,25 @@
-.form {
-  padding-top: 15px;
+.gallery {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
-.btnSearch {
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.link {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+.link:hover,
+.link:focus {
+  color: #f3962c;
+}
+.btn {
   font-size: 20px;
   margin-left: 5px;
   min-width: 40px;
@@ -14,15 +31,4 @@
   border-radius: 4px;
   border: none;
   cursor: pointer;
-}
-
-.input {
-  position: relative;
-  font-size: 18px;
-  padding-left: 15px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  min-width: 300px;
-  height: 30px;
-  border-radius: 4px;
 }

@@ -15,7 +15,7 @@ const Routes = () => {
             <Route exact path="/movies">
                 <MoviesPage />
             </Route>
-            <Route exact path="/movies/:movieId">
+            <Route path="/movies/:movieId">
                 <MovieDetailsPage />
             </Route>
             <Route component={NotFound} />

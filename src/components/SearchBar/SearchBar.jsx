@@ -36,5 +36,5 @@ const SearchBar = ({ onSubmit }) => {
 export default memo(SearchBar);
 
 SearchBar.propTypes = {
-  changeQuery: PropTypes.func,
+  onSubmit: PropTypes.func,
 };

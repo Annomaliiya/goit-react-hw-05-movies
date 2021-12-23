@@ -1,4 +1,5 @@
 import { memo } from "react";
+import PropTypes from "prop-types";
 
 import s from "./HomePageItem.module.css";
 import { Link } from "react-router-dom";
@@ -15,3 +16,10 @@ const HomePageItem = ({ id, title, poster_path, release_date }) => {
   );
 };
 export default memo(HomePageItem);
+
+HomePageItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  poster_path: PropTypes.string,
+  release_date: PropTypes.string,
+};

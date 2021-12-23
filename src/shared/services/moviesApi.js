@@ -31,8 +31,30 @@ export const fetchOneMovie = async (id) => {
 
 export const fetchMovieBySearch = async (query) => {
     try {
-        const { data } = await instance.get(`/movie/${query}`);
+        const { data } = await instance.get(`/search/movie?query=${query}`);
         return data;
+    }
+    catch (error) {
+        return error;
+    }
+}
+
+export const fetchCast = async (id) => {
+    try {
+        const { data } = await instance.get(`/movie/${id}/credits`);
+        return data;
+
+    }
+    catch (error) {
+        return error;
+    }
+}
+
+export const fetchReviews = async (id) => {
+    try {
+        const { data } = await instance.get(`/movie/${id}/reviews`);
+        return data;
+
     }
     catch (error) {
         return error;
