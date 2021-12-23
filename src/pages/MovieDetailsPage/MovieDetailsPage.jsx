@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useHistory, Link, Route } from "react-router-dom";
+import { useParams, useHistory, NavLink, Route } from "react-router-dom";
 
 import { fetchOneMovie } from "../../shared/services/moviesApi";
 
@@ -41,7 +41,7 @@ const MoviesDetailsPage = () => {
       <div className={s.item}>
         <h4 className={s.title}>{movie.title}</h4>
         <img
-          className={s.poster_path}
+          className={s.img}
           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
           alt={movie.title}
         />
@@ -52,11 +52,24 @@ const MoviesDetailsPage = () => {
         </p>
         <p className={s.release_date}>Release date: {movie.release_date}</p>
       </div>
-      <Link to={`/movies/${movieId}/cast`}>Cast</Link>
+      <p className={s.additional}>Additonal info:</p>
+      <NavLink
+        to={`/movies/${movieId}/cast`}
+        className={s.linkCast}
+        activeClassName={s.activeLink}
+      >
+        Cast
+      </NavLink>
       <Route path="/movies/:movieId/cast">
         <Cast movieId={movieId} />
       </Route>
-      <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
+      <NavLink
+        to={`/movies/${movieId}/reviews`}
+        className={s.linkReviews}
+        activeClassName={s.activeLink}
+      >
+        Reviews
+      </NavLink>
       <Route path="/movies/:movieId/reviews">
         <Reviews movieId={movieId} />
       </Route>

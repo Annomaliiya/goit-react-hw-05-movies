@@ -1,0 +1,12 @@
+.item {
+  padding-top: 10px;
+  font-size: 18px;
+}
+.name {
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.character {
+  margin-bottom: 15px;
+}

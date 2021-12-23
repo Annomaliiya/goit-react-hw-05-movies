@@ -20,14 +20,14 @@ const Cast = ({ movieId }) => {
   }, [movieId]);
 
   const elements = actors?.map((actor) => (
-    <li key={actor.id}>
+    <li className={s.item} key={actor.id}>
       <img
         height="200"
         src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`}
         alt={actor.name}
       />
-      <p>{actor.name}</p>
-      <p>{actor.character}</p>
+      <p className={s.name}>{actor.name}</p>
+      <p className={s.character}>{actor.character}</p>
     </li>
   ));
   return (

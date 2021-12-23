@@ -1,0 +1,14 @@
+.reviewsList {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
+}
+.author {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.review {
+  padding-top: 15px;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
