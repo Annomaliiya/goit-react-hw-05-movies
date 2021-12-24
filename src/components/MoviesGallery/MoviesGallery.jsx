@@ -1,11 +1,19 @@
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import s from "./MoviesGallery.module.css";
 
 const MoviesGallery = ({ items }) => {
   const history = useHistory();
+  const location = useLocation();
   const movies = items.map((item) => (
-    <Link to={`/movies/${item.id}`} className={s.link} key={item.id}>
+    <Link
+      to={{
+        pathname: `/movies/${item.id}`,
+        state: { from: location },
+      }}
+      className={s.link}
+      key={item.id}
+    >
       <div className={s.item}>
         <h4 className={s.title}>{item.title}</h4>
         <img
@@ -30,6 +38,14 @@ const MoviesGallery = ({ items }) => {
 
 export default MoviesGallery;
 
+const galleryShape = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  poster_path: PropTypes.string,
+  vote_average: PropTypes.number.isRequired,
+  original_language: PropTypes.string.isRequired,
+  release_date: PropTypes.string.isRequired,
+};
 MoviesGallery.propTypes = {
-  items: PropTypes.array,
+  items: PropTypes.arrayOf(PropTypes.shape(galleryShape)),
 };

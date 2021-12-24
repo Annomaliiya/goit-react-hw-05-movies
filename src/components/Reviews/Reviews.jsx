@@ -25,7 +25,7 @@ const Reviews = ({ movieId }) => {
   ));
   return (
     <div>
-      {reviews?.length > 0 ? (
+      {reviews.length ? (
         <ul className={s.reviewsList}>{reviewsList}</ul>
       ) : (
         <p className={s.review}>We didn't find any review for this movie</p>

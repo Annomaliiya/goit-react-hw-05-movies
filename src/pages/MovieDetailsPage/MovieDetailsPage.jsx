@@ -1,5 +1,11 @@
 import { useState, useEffect } from "react";
-import { useParams, useHistory, NavLink, Route } from "react-router-dom";
+import {
+  useParams,
+  useHistory,
+  NavLink,
+  Route,
+  useLocation,
+} from "react-router-dom";
 
 import { fetchOneMovie } from "../../shared/services/moviesApi";
 
@@ -13,6 +19,16 @@ const MoviesDetailsPage = () => {
   const [error, setError] = useState(false);
   const { movieId } = useParams();
   const history = useHistory();
+  const location = useLocation();
+
+  const goBack = () => {
+    if (location.state?.from) {
+      history.push(location.state.from);
+      return;
+    }
+    history.push("/movies");
+  };
+
   const getOneMovie = async () => {
     try {
       const oneMovie = await fetchOneMovie(movieId);
@@ -35,7 +51,7 @@ const MoviesDetailsPage = () => {
   }
   return (
     <>
-      <button onClick={() => history.goBack()} type="submit" className={s.btn}>
+      <button onClick={goBack} type="submit" className={s.btn}>
         Go back!
       </button>
       <div className={s.item}>
@@ -54,7 +70,10 @@ const MoviesDetailsPage = () => {
       </div>
       <p className={s.additional}>Additonal info:</p>
       <NavLink
-        to={`/movies/${movieId}/cast`}
+        to={{
+          pathname: `/movies/${movieId}/cast`,
+          state: { from: location.state?.from },
+        }}
         className={s.linkCast}
         activeClassName={s.activeLink}
       >
@@ -64,7 +83,10 @@ const MoviesDetailsPage = () => {
         <Cast movieId={movieId} />
       </Route>
       <NavLink
-        to={`/movies/${movieId}/reviews`}
+        to={{
+          pathname: `/movies/${movieId}/reviews`,
+          state: { from: location.state?.from },
+        }}
         className={s.linkReviews}
         activeClassName={s.activeLink}
       >
